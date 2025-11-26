@@ -1,0 +1,231 @@
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 20px;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #333;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+body.dark-mode .toggle-btn {
+  background-color: rgba(51, 51, 51, 0.8);
+  border-color: #fff;
+  color: #fff;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  background-color: white;
+  border: 3px solid #000;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin-top: 20px;
+}
+
+body.dark-mode .card {
+  background-color: #000000;
+  border-color: #d64dff;
+  color: white;
+}
+
+.card::before {
+  content: "♠";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  color: #000;
+  opacity: 0.5;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .card::before {
+  color: #fff;
+}
+
+.card::after {
+  content: "♠";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #000;
+  opacity: 0.5;
+  transform: rotate(180deg);
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .card::after {
+  color: #fff;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #000000;
+  margin-bottom: 20px;
+  object-fit: cover;
+  transition: border-color 0.3s ease;
+}
+
+body.dark-mode .profile-pic {
+  border-color: #fff;
+}
+
+.name-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.card h1 {
+  color: #333;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+  overflow: hidden;
+  border-right: 2px solid #333;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  display: inline-block;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #333;
+  }
+}
+
+body.dark-mode .card h1 {
+  color: #fff;
+  border-right-color: #fff;
+}
+
+.card .bio {
+  margin-bottom: 25px;
+  color: #555;
+  line-height: 1.6;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .card .bio {
+  color: #ccc;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-links a {
+  color: #333;
+  text-decoration: none;
+  padding: 12px 18px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 250px;
+  text-align: center;
+}
+
+body.dark-mode .social-links a {
+  color: #fff;
+  border-color: #fff;
+  background-color: #444;
+}
+
+.social-links a:hover {
+  background-color: #333;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .social-links a:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Responsivitas untuk mobile */
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+    margin: 10px;
+    max-width: 90%;
+  }
+
+  .card h1 {
+    font-size: 24px;
+  }
+
+  .card .bio {
+    font-size: 14px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .social-links a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    text-align: center;
+  }
+}
